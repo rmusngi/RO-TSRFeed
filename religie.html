@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
+                }
+            }
+        }
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $(".jump").on('click', function (event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Brainly StyleGuide-->
+    <link rel="icon" type="image/x-icon"
+        href="https://styleguide.brainly.ph/images/favicons/brainly/favicon-0c2222f36b.ico">
+    <link href="https://styleguide.brainly.com/159.1.1/style-guide.css" rel="stylesheet"/>
+    <!--End of Styleguide-->
+    <link href="css/style.css" rel="stylesheet">
+    <!--TableTop-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <script type='text/javascript'>
+        var publicSpreadsheetUrl =
+            'https://docs.google.com/spreadsheets/d/0/d/1rwjxlMyRdox5YxhPZlYsL7Pu24CEyhjFVhhJ071KVZw/pubhtml';
+
+        function init() {
+            Tabletop.init({
+                key: publicSpreadsheetUrl,
+                callback: showInfo,
+                simpleSheet: true
+            })
+        }
+        window.addEventListener('DOMContentLoaded', init)
+    </script>
+    <title>Answer Questions!</title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <div include-html="templates/navbar.html"></div>
+    <!--Header-->
+    <div include-html="templates/header.html"></div>
+    <!--Main Questions-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 subject-area" id="subject-area">
+                <div include-html="templates/subjects.html"></div>
+            </div>
+            <div class="col-md-8">
+                <div class="list-q" id="#qlist">
+                    <div class="question-queue">
+                    </div>
+                    <div class="sg-spinner-container" id="spinner">
+                        <div class="sg-spinner sg-spinner"></div><span class="span-loading">LOADING QUESTIONS</span>
+                    </div>
+
+                    <button class="sg-button sg-button--medium sg-button--primary-mint" id="loadMore">
+                        <span class="sg-button__icon sg-button__icon--medium">
+                          <div class="sg-icon sg-icon--adaptive sg-icon--x24">
+                            <svg class="sg-icon__svg">
+                              <use xlink:href="#icon-more"></use>
+                            </svg>
+                          </div>
+                        </span>
+                        <span class="sg-button__text">Load More</span>
+                      </button>
+                  
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="data">
+                    <div include-html="templates/leaderboard.html"></div>
+                    <div include-html="templates/sidebar.html"></div>
+                    <div class="backtotop">
+                        <button class="sg-button sg-button--secondary" id="top-btn"><span class="sg-button__text">
+                                <div class="sg-icon sg-icon--dark sg-icon--x32"><svg class="sg-icon__svg">
+                                        <use xlink:href="#icon-arrow_up"></use>
+                                    </svg></div>
+                            </span></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+        <div include-html="templates/footer.html"></div>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+            </script>
+        <!--Brainly Scripts-->
+        <script src="https://styleguide.brainly.com/images/icons-48d92c08df.js"></script>
+        <script src="https://styleguide.brainly.com/images/subjects-icons-a01adb2d40.js"></script>
+        <script src="https://styleguide.brainly.com/images/subjects-mono-icons-341dc27120.js"></script>
+        <script src="https://styleguide.brainly.com/images/math-symbols-icons-7c9d6883f2.js"></script>
+
+        <!--Scripts-->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+            </script>
+
+        
+        <script src="js/backtotop.js"></script>
+        <script src="js/scoreboard.js"></script>
+        <script src="js/tabletop.js"></script>
+        <script src="js/loader.js"></script>
+        <script>
+            includeHTML();
+        </script>
+</body>
+
+</html>
