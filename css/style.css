@@ -1,0 +1,470 @@
+body {
+    margin: 0;
+    background: #ebebeb;
+    overflow-x : hidden!important;
+    outline: none;
+}
+
+a{ 
+    text-decoration: none!important;
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+}
+.jumbotron {
+    background: url('header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    height: 60vh;
+    border-radius: 0!important;
+
+}
+
+.share-button {
+    display: none;
+}
+
+
+.intro {
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.plant-tree {
+    margin-top: 30px;
+}
+
+.description {
+    margin-top: 50px;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    width: 50%;
+    margin-left:25%;
+}
+
+.cta-button {
+    margin-top: 20px;
+}
+
+.cta-button a {
+    color: #fff;
+    text-decoration:none;
+}
+
+.cta-button a:hover {
+    color:#fff;
+}
+
+.how-it-works {
+    text-align: center;
+}
+
+.tutorial-cards {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.card {
+    height: 145px!important;
+}
+.subject-drop {
+    display: none;
+}
+
+.subjects {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.subject-left {
+    padding: 10px;
+    
+}
+
+.subject-icon {
+    display: inline;
+    vertical-align: 1%;
+    margin-left: 5px;
+}
+
+.subject-name {
+    display: inline-block;
+    vertical-align: 0.5px;
+}
+
+.list-q {
+    margin-top: 20px;
+    width: 500px;
+}
+
+.question-individual {
+    margin-bottom: 20px!important;
+    border: none;
+    width:600px;
+
+}
+.brainly-questions:nth-child(n+6) {
+    display: none;
+}
+
+.brainly-questions a {
+    color:#000;
+}
+
+.brainly-questions .sg-icon__svg {
+    fill:#000!important;
+}
+.sg-spinner {
+    width: 16px !important;
+    height: 16px !important;
+    margin-right: 10px;
+
+}
+
+#loadMore {
+    margin-top: 20px;
+    margin-bottom: 150px;
+}
+.answer-question a:hover { 
+    color: #fff;
+    text-decoration: none;
+}
+
+.answer-question a {
+    color: #fff;
+}
+.data {
+    width: 300px;
+    margin-top: 20px;
+    margin-left: -100px;
+}
+
+.data h1 {
+    text-align: center;
+}
+
+.data p{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#top-btn {
+    position: fixed;
+    top: 90vh;
+    z-index: 1000;
+    right: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+
+}
+
+
+#top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#top-btn:active, #top-btn:hover{
+    outline: none;
+    
+}
+
+.share-fb {
+    margin-top: 30px;
+}
+
+.share-fb a:hover, .share-fb a:active, .share-fb a {
+    outline: none;
+}
+
+.footer-count {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
+
+.footer-count h2 {
+    margin-bottom: 10px;
+}
+
+.footer-data:nth-child(n+2) {
+    display: none;
+}
+
+.leaderboard {
+	width: 100%;
+	background-color:  #60d399!important;
+	border: none!important;
+	border-bottom-right-radius: 0px!important;
+	border-bottom-left-radius: 0px!important;
+}
+
+.scores.sg-box.sg-box--no-border {
+	background: #fff;
+}
+
+.main-area .sg-box__hole {
+	margin: auto;
+}
+.main-area h2 {
+	color: white;
+	text-transform: uppercase;
+
+}
+
+.scores {
+	margin-top: 0px!important;
+	width: 100%;
+	border-top-right-radius: 0px!important;
+    border-top-left-radius: 0px!important;
+    margin-bottom: 32px;
+}
+
+.scoreboard img {
+	display: inline;
+	margin-left: 5px;
+	margin-right: 10px;
+
+}
+
+.scoreboard a {
+	margin-right: 185px;
+	font-weight: bold;
+    color: #000;
+
+}
+
+.scoreboard li:nth-child(n+10) {
+    display: none;
+}
+
+.points{
+	float: right;
+    margin-top: -20px;
+    margin-right: 100px;
+}
+.span-loading {
+	font-size: 25px;
+	font-weight: 900;
+	margin-left: 20px;
+}
+
+.scoreboard hr {
+    width: 200px;
+    align-content: center;
+    margin-left: 0;
+}
+
+.scoreboard hr:nth-child(n+10) {
+    display: none;
+}
+.qlabel {display: block;}
+
+/*Responsive Design*/
+
+/*Laptop - 1440px*/
+@media (max-width: 1366px) {
+
+    .intro {
+        margin-top: -20px;
+    }
+    .jumbotron {
+        height: 60vh;
+    }
+
+    .question-individual {
+        width: 45vw;
+    }
+}
+
+/*Laptop - 1024px*/
+
+@media (max-width: 1150px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    #top-btn {
+        display: none;
+        visibility: hidden!important;
+    }
+
+    .jumbotron {
+        height: 50vh;
+    }
+
+    .intro {
+        font-size:45px;
+        line-height: 1;
+        margin-top: -45px;
+    }
+
+    .plant-tree {
+        margin-top: 5px;
+    }
+
+    .description {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    
+
+    .subjects {
+        text-align: left;
+        width: 200px;
+    }
+
+    .tutorial-cards {
+        margin-bottom: 50px;
+    }
+
+    
+
+    .question-individual{
+        width: 500px;
+    }
+
+    .data {
+        width: 250px;
+    }
+}
+
+/*Tablet - 990px*/
+@media (max-width: 990px) {
+    .intro {
+        margin-top: -10px;
+    }
+    .navbar-toggler{
+        display: none;
+      
+    }
+
+    .tutorial-cards {
+        display: block;
+    }
+    .card {
+        width: 60vw;
+        padding: 15px;
+        margin-bottom: 20px;
+        margin-left: 5vw;
+    }
+
+    .share-button {
+        display: block;
+        margin-left: 26vw;
+    }
+    .subject-area {
+        display: block;
+        text-align: center;
+    }
+
+    .subjects {
+        display: none;
+    }
+
+    .subject-drop {
+        display: block;
+    }
+
+
+    .pick-subject {
+        width: 130px!important;
+        margin-right: 0;
+    }
+
+    .list-q {
+        margin-top: 50px;
+        margin-left: -80px;
+
+    
+    }
+    .question-individual {
+        width: 60vw;
+        margin-left: 1vw;
+    }
+
+    .data {
+        display: none;
+    }
+}
+
+@media (max-width: 972px) {
+
+    .jumbotron{
+        height: 80vh;
+    }
+
+}
+
+/*Mobile- 760px*/
+@media (max-width: 767px) {
+    .intro {
+        margin-top: -30px;
+    }
+
+    .description {
+        margin-top: 5px;
+        font-size:18px;
+    }
+
+    .list-q {
+        margin-left: 20px;
+    }
+
+    .question-individual {
+        width: 70vw;
+    }
+
+}
+
+/*MobileM - 520px*/
+@media (max-width: 520px) {
+    body, html{
+        overflow-x: hidden!important;
+    }
+    .intro{
+        margin-left: -3px;
+        margin-top: -5px;
+    }
+
+    .cta-button {
+        margin-top: 10px;
+    }
+    .list-q {
+        margin-left: 10px;
+    }
+
+    .question-individual {
+        width: 80vw;
+        margin-left: 2vw;
+    }
+/*MobileS - 377px*/
+@media (max-width: 378px) {
+    .intro {
+        font-size: 30px!important;
+        
+    }
+    .question-individual {
+        width: 70vw;
+        margin-left: 5vw;
+    }
+
+    .card {
+        width: 85vw;
+    }
+
+    .question-text {
+        padding: 30px 10px;
+    }
+    .cta-button{
+        display: none;
+    }
+    #spinner {
+        display: block;
+    }
